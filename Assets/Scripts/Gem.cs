@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
+[RequireComponent(typeof(CircleCollider2D))]
 public class Gem : MonoBehaviour
 {
     [SerializeField] private int _reward;

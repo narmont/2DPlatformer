@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CheckGround();
+        JumpAnimationOfGround();
     }
 
     private void Jump()
@@ -62,16 +62,16 @@ public class PlayerMovement : MonoBehaviour
         _animator.SetFloat(_moving, Mathf.Abs(horizontalMove.x));
     }
 
-    private void CheckGround()
+    private void JumpAnimationOfGround()
     {
         int quantitySprites = 1;
 
         Collider2D[] collider = Physics2D.OverlapCircleAll(_checkGround.transform.position, _checkGroundRadius);
         _isGrounded = collider.Length > quantitySprites;
 
-        if (_isGrounded == true)
-            _animator.SetBool(_isJumping, false);
-        else
+        _animator.SetBool(_isJumping, false);
+
+        if (_isGrounded == false)
             _animator.SetBool(_isJumping, true);
     }
 

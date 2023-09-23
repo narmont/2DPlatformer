@@ -26,8 +26,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        CheckWall();
-        CheckGround();
+        PatrolGround();
+        PatrolWall();
     }
 
     private void TurnAround()
@@ -43,7 +43,7 @@ public class EnemyMovement : MonoBehaviour
         return transform.localScale.x > Mathf.Epsilon;
     }
 
-    private void CheckGround()
+    private void PatrolWall()
     {
         int quantitySprites = 1;
 
@@ -56,7 +56,7 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-    private void CheckWall()
+    private void PatrolGround()
     {
         int quantitySprites = 0;
 
